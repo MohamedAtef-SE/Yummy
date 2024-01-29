@@ -1,0 +1,188 @@
+:root {
+    --main-color: tomato;
+    --transition: .4s;
+}
+
+li {
+    overflow: hidden;
+}
+
+.w-50px {
+    width: 50px;
+}
+
+.fs-small {
+    font-size: 11px;
+}
+
+
+/* * Start Header Section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+
+header .leftSideBar,
+header .rightSideBar {
+    flex-direction: column;
+}
+
+header .leftSideBar {
+    box-shadow: -3px 0px 5px white;
+}
+
+header .rightSideBar img,
+header ul li {
+    cursor: pointer;
+}
+
+.fa-brands,
+.fa-solid,
+header .rightSideBar .bottomRBar .fa-solid {
+    cursor: pointer;
+}
+
+
+header .leftSideBar li {
+    transition: var(--transition);
+    color: white;
+}
+
+header .leftSideBar li:hover {
+    color: var(--main-color);
+}
+
+/* * End Header Section */
+
+
+
+/* * Start Home Section */
+.mealCard .mealDes,
+.mealCard p {
+    transition: var(--transition);
+    top: 100%;
+    cursor: pointer;
+}
+
+.mealCard:hover .mealDes {
+    top: 0;
+}
+
+.mealDetails {
+    padding: 50px;
+    min-height: calc(100vh - 100px);
+}
+
+/* * End Home Section */
+
+
+/* * Start Category Section */
+.categoryCard p {
+    height: 100px;
+    overflow: hidden;
+}
+
+.categoryCard .mealDes {
+    transition: var(--transition);
+    top: 100%;
+    cursor: pointer;
+}
+
+.categoryCard:hover .mealDes {
+    top: 0;
+}
+
+/* * End Category Section */
+
+
+/* * Start Area Section */
+
+.area .areaCard {
+    cursor: pointer;
+}
+
+.areaCard>div {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.iconArea {
+    font-size: 100px;
+}
+
+/* * End Area Section */
+
+/* * Start Ingredients Section */
+
+.IngredientsCard .inner,
+.IngredientsCard .inner .content {
+    height: 300px;
+    width: 100%;
+}
+
+.IngredientsCard .inner .content {
+    top: 100%;
+    transition: var(--transition);
+}
+
+.IngredientsCard .inner:hover .content {
+    top: 0;
+}
+
+.IngredientsCard {
+    height: 320px;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* * End Ingredients Section */
+
+
+
+/* * Loading page Start  */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+    0% {
+        -webkit-transform: perspective(120px)
+    }
+
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg)
+    }
+
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+    }
+}
+
+@keyframes sk-rotateplane {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    }
+
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    }
+
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+/* * Loading Page End */

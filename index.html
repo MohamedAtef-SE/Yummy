@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="icon" href="./logo.png" />
+    <!-- ^ Font Awesome -->
+    <link rel="stylesheet" href="./css/all.min.css">
+    <!-- ^ Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- ^ Main Styling Sheet -->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body class="bg-dark">
+    <header class="d-flex z-3 align-items-center">
+        <div class="leftSideBar bg-dark text-white py-4 px-4 d-flex justify-content-around rounded">
+            <ul class="list-unstyled">
+                <li class="text-capitalize mb-4 h5   searchList">search</li>
+                <li class="text-capitalize mb-4 h5   categoryList">categories</li>
+                <li class="text-capitalize mb-4 h5   areaList">area</li>
+                <li class="text-capitalize mb-4 h5   IngredientsList">ingredients</li>
+                <li class="text-capitalize mb-4 h5   contactList">contact us</li>
+            </ul>
+            <div class="bottomLSide">
+                <i class="fa-brands fa-facebook m-2"></i>
+                <i class="fa-brands fa-instagram m-2"></i>
+                <i class="fa-brands fa-youtube m-2"></i>
+                <p class="fs-small">
+                    Copyright &copy; <span class="fw-bolder">Mohamed Atef</span> 2023 All Rights Reserved.
+                </p>
+            </div>
+        </div>
+        <div class="rightSideBar bg-white bg-opacity-75 d-flex justify-content-around py-4 px-1 rounded">
+            <img src="./logo.png" class="w-50px logo" alt="yellow happy face">
+            <div class="closebtn d-flex flex-column">
+                <i class="fa-solid fa-xmark d-none px-3 fs-2"></i>
+                <i class="fa-solid fa-bars px-3 fs-2"></i>
+            </div>
+            <div class="bottomRBar d-flex flex-column">
+                <i class="fa-solid fa-share-nodes d-block py-2 px-3 fs-5"></i>
+                <i class="fa-solid fa-globe d-block py-2 px-3 fs-5"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!--^ Loading Page -->
+        <div class="loading bg-black fixed-top">
+            <div class="innerDiv vh-100 d-flex justify-content-center align-items-center">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <!-- ^ Home Page -->
+        <section class="home d-none container my-5">
+            <div class="inputs mb-3 d-none d-flex justify-content-around align-items-center">
+                <input type="text"
+                    class="searchByName bg-transparent border border-1 border-white rounded px-4 w-50 py-2 text-white mx-2"
+                    name="" id="sByName" placeholder="Search By Meal Name">
+                <input type="text"
+                    class="searchByletter bg-transparent border border-1 border-white rounded px-4 w-50 py-2 text-white mx-2"
+                    name="" id="sByletter" placeholder="Search By First Letter">
+            </div>
+            <div class="row homeMeals"></div>
+        </section>
+        <!-- ^ Meal Details -->
+        <section class="mealDetails d-none position-absolute top-0 start-0 end-0 container bg-dark w-100 z-2">
+            <div class="row flex-column flex-md-row"></div>
+        </section>
+        <!-- ^ Category Page -->
+        <section class="category d-none min-vh-100 py-5 position-absolute top-0 start-0 end-0 container bg-dark z-1">
+            <div class="row"></div>
+        </section>
+        <!-- ^ Area Page -->
+        <section class="area d-none min-vh-100 py-5 position-absolute top-0 start-0 end-0 container bg-dark z-1">
+            <div class="row"></div>
+        </section>
+        <!-- ^ Ingredients Page -->
+        <section class="ingredients d-none min-vh-100 py-5 position-absolute top-0 start-0 end-0 container bg-dark z-1">
+            <div class="row g-3"></div>
+        </section>
+        <!-- ^ Contact Page -->
+        <section
+            class="contact d-none min-vh-100 py-5 position-absolute top-0 start-0 end-0 flex-column container bg-dark z-1 d-flex align-items-center justify-content-center">
+            <div class="row w-100">
+                <div class="col-md-6">
+                    <div class="inner position-relative">
+                        <input type="text" name="fName" id="fName"
+                            class="fName w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Enter Your First Name">
+                        <div class="alert nameError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            Special characters and numbers not allowed
+                        </div>
+                    </div>
+                    <div class="inner position-relative">
+                        <input type="email" name="email" id="email"
+                            class="mail w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Enter Your Email">
+                        <div class="alert mailError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            Email not valid *exemple@yyy.zzz
+                        </div>
+                    </div>
+                    <div class="inner position-relative">
+                        <input type="tel" name="phone" id="phone"
+                            class="phone w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Enter Your Phone Number">
+                        <div class="alert phoneError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            Enter valid Phone Number
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="inner position-relative">
+                        <input type="number" name="age" id="age"
+                            class="age w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Enter Your Age">
+                        <div class="alert ageError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            Enter valid age
+                        </div>
+                    </div>
+                    <div class="inner position-relative">
+                        <input type="password" name="pass" id="pass"
+                            class="pass w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Create New Password">
+                        <div class="alert passError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            <p>
+                                Must Contain Minimum eight characters, at least one letter one special character and one
+                                number.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="inner position-relative">
+                        <input type="password" name="rePass" id="rePass"
+                            class="rePass w-100 mb-3 px-3 py-2 bg-transparent text-white border border-1 rounded-2"
+                            placeholder="Confirm Password">
+                        <div class="alert rePassError alert-danger position-absolute top-100 start-0 z-3 d-none"
+                            role="alert">
+                            Enter valid re-password
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-danger">Submit</button>
+        </section>
+    </main>
+    <!-- ^ Bootstrap Js -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- ^ JQuery Js -->
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <!-- ^ Main Js File -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
