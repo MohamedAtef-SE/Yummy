@@ -306,44 +306,113 @@ const regexMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regexPhone = /^\+(?:[0-9] ?){6,14}[0-9]$/;
 const regexAge = /^(?:[4-9]|[1-8][0-9]|90)$/;
 const regexPass = /^(?=.*[A-Z])(?=.*\d)(?=.*[@_$!%*?&])[A-Za-z\d@_$!%*?&]{8,}$/;
+const checkAllDataValid = {
+    fName: false,
+    mail: false,
+    phone: false,
+    pass: false,
+    rePass: false,
+    age: false
+}
 
 $('.contact input').on('keyup', function () {
     if ($(this).hasClass('fName')) {
-        if (regexName.test($(this).val())) $('.nameError').addClass('d-none');
-        else $('.nameError').removeClass('d-none');
+        if (regexName.test($(this).val())) {
+            $('.nameError').addClass('d-none');
+            checkAllDataValid.fName = true;
+        }
+        else {
+            $('.nameError').removeClass('d-none');
+            checkAllDataValid.fName = false;
+        }
     }
 
     else if ($(this).hasClass('mail')) {
-        if (regexMail.test($(this).val())) $('.mailError').addClass('d-none');
-        else $('.mailError').removeClass('d-none');
+        if (regexMail.test($(this).val())) {
+            $('.mailError').addClass('d-none');
+            checkAllDataValid.mail = true;
+        }
+        else {
+            $('.mailError').removeClass('d-none');
+            checkAllDataValid.mail = false;
+        }
     }
 
     else if ($(this).hasClass('phone')) {
-        if (regexPhone.test($(this).val())) $('.phoneError').addClass('d-none');
-        else $('.phoneError').removeClass('d-none');
+        if (regexPhone.test($(this).val())) {
+            $('.phoneError').addClass('d-none');
+            checkAllDataValid.phone = true;
+        }
+        else {
+            $('.phoneError').removeClass('d-none');
+            checkAllDataValid.phone = false;
+        }
     }
 
     else if ($(this).hasClass('age')) {
-        if (regexAge.test($(this).val())) $('.ageError').addClass('d-none');
-        else $('.ageError').removeClass('d-none');
+        if (regexAge.test($(this).val())) {
+            $('.ageError').addClass('d-none');
+            checkAllDataValid.age = true;
+        }
+        else {
+            $('.ageError').removeClass('d-none');
+            checkAllDataValid.age = false;
+        }
     }
 
     else if ($(this).hasClass('pass')) {
         if (regexPass.test($(this).val())) {
             $('.passError').addClass('d-none');
+            checkAllDataValid.pass = true;
             if ($('.rePass').val() != '') {
-                if ($('.rePass').val() == $('.pass').val()) $('.rePassError').addClass('d-none');
-                else $('.rePassError').removeClass('d-none');
+                if ($('.rePass').val() == $('.pass').val()) {
+                    $('.rePassError').addClass('d-none');
+                    checkAllDataValid.rePass = true;
+                }
+                else {
+                    $('.rePassError').removeClass('d-none');
+                    checkAllDataValid.rePass = false;
+                }
             }
         }
-        else $('.passError').removeClass('d-none');
+        else {
+            $('.passError').removeClass('d-none');
+            checkAllDataValid.pass = false;
+        }
+
     }
 
     else if ($(this).hasClass('rePass')) {
-        if ($(this).val() == $('.pass').val()) $('.rePassError').addClass('d-none');
-        else $('.rePassError').removeClass('d-none');
+        if ($(this).val() == $('.pass').val()) {
+            $('.rePassError').addClass('d-none');
+            checkAllDataValid.rePass = true;
+        }
+        else {
+            $('.rePassError').removeClass('d-none');
+            checkAllDataValid.rePass = false;
+        }
     }
 
+    function hasFalseValue(obj) {
+        for (const [key, value] of Object.entries(obj)) {
+            if (!value) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    $('.contact input').on('keyup', function () {
+        hasFalseValue(checkAllDataValid);
+    });
+
+
+    if (hasFalseValue(checkAllDataValid)) {
+        $('.btnContact').removeClass('opacity-25');
+    } else {
+        $('.btnContact').addClass('opacity-25');
+
+    }
 })
 //* END CONTACT SECTION
 
@@ -366,3 +435,7 @@ function removeLoadingPage() {
     })
 }
 //^ END LOADING PAGE
+
+
+
+
